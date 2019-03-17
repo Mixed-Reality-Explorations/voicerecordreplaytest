@@ -6,11 +6,9 @@ import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.hardware.camera2.CameraDevice;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -22,12 +20,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.vuforia.CameraDevice;
 import com.vuforia.DataSet;
 import com.vuforia.DeviceTracker;
 import com.vuforia.ObjectTracker;
 import com.vuforia.PositionalDeviceTracker;
 import com.vuforia.STORAGE_TYPE;
 import com.vuforia.State;
+import com.vuforia.Trackable;
 import com.vuforia.TrackableList;
 import com.vuforia.TrackableResult;
 import com.vuforia.Tracker;
@@ -40,7 +40,15 @@ import java.util.Vector;
 
 import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.SampleAppMenuInterface;
 import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.SampleApplicationControl;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.SampleApplicationException;
 import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.SampleApplicationSession;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.ui.SampleAppMenu.SampleAppMenu;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.ui.SampleAppMenu.SampleAppMenuGroup;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.ui.SampleAppMessage;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.utils.LoadingDialogHandler;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.utils.SampleAppTimer;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.utils.SampleApplicationGLView;
+import io.github.molecule.voice_record_replay_test.VuforiaSampleCode.utils.Texture;
 
 
 /**
